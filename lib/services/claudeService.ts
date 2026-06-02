@@ -48,7 +48,7 @@ Réponds EXCLUSIVEMENT avec un JSON valide selon ce schéma:
 }`
 
     const message = await anthropic.messages.create({
-      model: 'claude-3-haiku-20240307',
+      model: 'claude-haiku-4-5-20251001',
       max_tokens: 1024,
       temperature: 0.2,
       system: LIVE_SYSTEM_PROMPT,
@@ -178,14 +178,12 @@ Réponds EXCLUSIVEMENT avec un JSON valide selon ce schéma:
 }`
     }
 
-    // Use Sonnet 4.5 for very long transcripts to avoid token limit issues
     const isLongTranscript = fullTranscript.length > 15000 // ~15k characters
-    const model = isLongTranscript ? 'claude-sonnet-4-5-20250929' : 'claude-3-haiku-20240307'
-    // Sonnet 4.5 can handle up to 16k output tokens
+    const model = isLongTranscript ? 'claude-sonnet-4-6' : 'claude-haiku-4-5-20251001'
     const maxTokens = isLongTranscript ? 16000 : 4096
 
     if (isLongTranscript) {
-      console.log(`⚠️ Long transcript detected (${fullTranscript.length} chars), using Sonnet 4.5 with extended output`)
+      console.log(`⚠️ Long transcript detected (${fullTranscript.length} chars), using Sonnet 4.6 with extended output`)
     }
 
     const message = await anthropic.messages.create({
