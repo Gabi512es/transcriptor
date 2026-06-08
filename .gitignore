@@ -51,3 +51,4 @@ next-env.d.ts
 
 **/.claude/settings.local.json
 .venvtest-whisperlivekit/.venv/
+test-whisperlivekit/.venv/
