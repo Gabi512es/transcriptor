@@ -1,0 +1,17 @@
+# WhisperLive client (TranscriptionClient, TranscriptionTeeClient, Client)
+whisper-live
+
+# Faster-Whisper (CTranslate2-based backend used by the WhisperLive server)
+faster-whisper
+
+# Speaker diarization
+pyannote.audio
+
+# Apple Silicon (MLX) accelerated Whisper
+mlx-whisper
+
+# HuggingFace Hub — token management and model downloads
+huggingface_hub
+
+# Microphone capture used by whisper_live.client
+PyAudio
