@@ -224,10 +224,10 @@ def main() -> None:
         lang=None,              # auto-detect
         model="medium",
         use_vad=True,
-        # Raise min_speech_duration_ms (default 250 ms) so that brief noise or
-        # silence at microphone open doesn't satisfy the VAD and trigger a
-        # spurious language-detection call before real speech begins.
-        vad_parameters={"min_speech_duration_ms": 600},
+        # Lower no_speech_thresh (default 0.45) to discard segments where
+        # Whisper assigns >20% probability of silence/noise, preventing a
+        # spurious language-detection result at microphone open.
+        no_speech_thresh=0.2,
         log_transcription=False,
         transcription_callback=_on_segment,
         enable_diarization=False,   # skip in phase 1 — model load adds latency
